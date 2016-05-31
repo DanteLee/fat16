@@ -1,6 +1,6 @@
 #include "disk.h"
 
-void print(disk *hd) {
+void print(disk_t *hd) {
     printf("\n");
     printf("bytesPerSector=%lu\n", hd->bytesPerSector);
     printf("totalSectors=%lu\n", hd->totalSectors);
@@ -18,17 +18,9 @@ void print(disk *hd) {
 }
 
 int main(void) {
-    disk *hd, *another;
+    disk_t *hd, *another;
 
-    hd = createDisk("disk.flp");
-    if (hd == NULL) {
-        printf("no such file.\n");
-        exit(0);
-    }
-    fdisk(hd);
-    print(hd);
-    destroyDisk(hd);
-    another = checkDisk("disk.flp");
+    another = checkDisk("dos1.flp");
     if (another == NULL) {
         printf("no such file.\n");
         exit(0);
